@@ -27,14 +27,14 @@ struct monoString {
 // Function: CreateMonoString
 inline monoString* CreateMonoString(const char* str) {
     if (str == nullptr) {
-        LOGE(AY_OBFUSCATE("CreateMonoString: Input string is null."));
+        LOGE(OBFUSCATE("CreateMonoString: Input string is null."));
         return nullptr;
     }
 
     // Directly open the library handle
-    void* handle = dlopen(AY_OBFUSCATE("libil2cpp.so"), RTLD_LAZY);
+    void* handle = dlopen(OBFUSCATE("libil2cpp.so"), RTLD_LAZY);
     if (!handle) {
-        LOGE(AY_OBFUSCATE("Failed to open the library. Error: %s"), dlerror());
+        LOGE(OBFUSCATE("Failed to open the library. Error: %s"), dlerror());
         return nullptr;
     }
 
@@ -42,7 +42,7 @@ inline monoString* CreateMonoString(const char* str) {
     void* func_ptr = dlsym(handle, "il2cpp_string_new");
     if (!func_ptr) {
         const char* symerror = dlerror();
-        LOGE(AY_OBFUSCATE("Unable to locate the required symbol 'il2cpp_string_new'. Error: %s"), symerror);
+        LOGE(OBFUSCATE("Unable to locate the required symbol 'il2cpp_string_new'. Error: %s"), symerror);
         dlclose(handle); // Close the library handle
         return nullptr;
     }

@@ -22,7 +22,7 @@
 #pragma ide diagnostic ignored "OCDFAInspection"
 
 //Target lib here
-#define targetLibName AY_OBFUSCATE("libil2cpp.so")
+#define targetLibName OBFUSCATE("libil2cpp.so")
 ElfScanner g_il2cppElf;
 uintptr_t il2cppBase;
 
@@ -213,7 +213,7 @@ void FunctionExample(void *instance) {
 
 // we will run our hacks in a new thread so our while loop doesn't block process main thread
 void *hack_thread(void *) {
-    LOGI(AY_OBFUSCATE("pthread created"));
+    LOGI(OBFUSCATE("pthread created"));
 
     //Check if target lib is loaded
     do {
@@ -226,7 +226,7 @@ void *hack_thread(void *) {
         libLoaded = true;
     }
 
-    LOGI(AY_OBFUSCATE("%s has been loaded"), (const char *) targetLibName);
+    LOGI(OBFUSCATE("%s has been loaded"), (const char *) targetLibName);
 
 
     // Hook example. Comment out if you don't use hook
@@ -275,7 +275,7 @@ void *hack_thread(void *) {
     DobbyHook((void *)(il2cppBase + 0x000000), (void *)playerlevel, (void **)&old_playerlevel);
 #endif
 
-    LOGI(AY_OBFUSCATE("Done"));
+    LOGI(OBFUSCATE("Done"));
 
     //Anti-leech
     /*if (!iconValid || !initValid || !settingsValid) {
@@ -299,45 +299,45 @@ jobjectArray GetFeatureList(JNIEnv *env, jobject context) {
     jobjectArray ret;
 
     const char *features[] = {
-            AY_OBFUSCATE("Category_Player Mods"), //Not counted
-            AY_OBFUSCATE("1_Toggle_Maximum Light Radius"),
-            AY_OBFUSCATE("2_Toggle_Remove All Shadows"),
+            OBFUSCATE("Category_Player Mods"), //Not counted
+            OBFUSCATE("1_Toggle_Maximum Light Radius"),
+            OBFUSCATE("2_Toggle_Remove All Shadows"),
     
     /*
-            AY_OBFUSCATE("Category_The Category"), //Not counted
-            AY_OBFUSCATE("Toggle_The toggle"),
-            AY_OBFUSCATE(
+            OBFUSCATE("Category_The Category"), //Not counted
+            OBFUSCATE("Toggle_The toggle"),
+            OBFUSCATE(
                     "100_Toggle_True_The toggle 2"), //This one have feature number assigned, and switched on by default
-            AY_OBFUSCATE("110_Toggle_The toggle 3"), //This one too
-            AY_OBFUSCATE("SeekBar_The slider_1_100"),
-            AY_OBFUSCATE("Spinner_The spinner_Items 1,Items 2,Items 3"),
-            AY_OBFUSCATE("Button_The button"),
-            AY_OBFUSCATE("ButtonLink_The button with link_https://www.youtube.com/"), //Not counted
-            AY_OBFUSCATE("ButtonOnOff_The On/Off button"),
-            AY_OBFUSCATE("CheckBox_The Check Box"),
-            AY_OBFUSCATE("InputValue_Input number"),
-            AY_OBFUSCATE("InputValue_1000_Input number 2"), //Max value
-            AY_OBFUSCATE("InputText_Input text"),
-            AY_OBFUSCATE("RadioButton_Radio buttons_OFF,Mod 1,Mod 2,Mod 3"),
+            OBFUSCATE("110_Toggle_The toggle 3"), //This one too
+            OBFUSCATE("SeekBar_The slider_1_100"),
+            OBFUSCATE("Spinner_The spinner_Items 1,Items 2,Items 3"),
+            OBFUSCATE("Button_The button"),
+            OBFUSCATE("ButtonLink_The button with link_https://www.youtube.com/"), //Not counted
+            OBFUSCATE("ButtonOnOff_The On/Off button"),
+            OBFUSCATE("CheckBox_The Check Box"),
+            OBFUSCATE("InputValue_Input number"),
+            OBFUSCATE("InputValue_1000_Input number 2"), //Max value
+            OBFUSCATE("InputText_Input text"),
+            OBFUSCATE("RadioButton_Radio buttons_OFF,Mod 1,Mod 2,Mod 3"),
 
             //Create new collapse
-            AY_OBFUSCATE("Collapse_Collapse 1"),
-            AY_OBFUSCATE("CollapseAdd_Toggle_The toggle"),
-            AY_OBFUSCATE("CollapseAdd_Toggle_The toggle"),
-            AY_OBFUSCATE("123_CollapseAdd_Toggle_The toggle"),
-            AY_OBFUSCATE("122_CollapseAdd_CheckBox_Check box"),
-            AY_OBFUSCATE("CollapseAdd_Button_The button"),
+            OBFUSCATE("Collapse_Collapse 1"),
+            OBFUSCATE("CollapseAdd_Toggle_The toggle"),
+            OBFUSCATE("CollapseAdd_Toggle_The toggle"),
+            OBFUSCATE("123_CollapseAdd_Toggle_The toggle"),
+            OBFUSCATE("122_CollapseAdd_CheckBox_Check box"),
+            OBFUSCATE("CollapseAdd_Button_The button"),
 
             //Create new collapse again
-            AY_OBFUSCATE("Collapse_Collapse 2_True"),
-            AY_OBFUSCATE("CollapseAdd_SeekBar_The slider_1_100"),
-            AY_OBFUSCATE("CollapseAdd_InputValue_Input number"),
+            OBFUSCATE("Collapse_Collapse 2_True"),
+            OBFUSCATE("CollapseAdd_SeekBar_The slider_1_100"),
+            OBFUSCATE("CollapseAdd_InputValue_Input number"),
 
-            AY_OBFUSCATE("RichTextView_This is text view, not fully HTML."
+            OBFUSCATE("RichTextView_This is text view, not fully HTML."
                       "<b>Bold</b> <i>italic</i> <u>underline</u>"
                       "<br />New line <font color='red'>Support colors</font>"
                       "<br/><big>bigger Text</big>"),
-            AY_OBFUSCATE("RichWebView_<html><head><style>body{color: white;}</style></head><body>"
+            OBFUSCATE("RichWebView_<html><head><style>body{color: white;}</style></head><body>"
                       "This is WebView, with REAL HTML support!"
                       "<div style=\"background-color: darkblue; text-align: center;\">Support CSS</div>"
                       "<marquee style=\"color: green; font-weight:bold;\" direction=\"left\" scrollamount=\"5\" behavior=\"scroll\">This is <u>scrollable</u> text</marquee>"
@@ -347,7 +347,7 @@ jobjectArray GetFeatureList(JNIEnv *env, jobject context) {
     //Now you dont have to manually update the number everytime;
     int Total_Feature = (sizeof features / sizeof features[0]);
     ret = (jobjectArray)
-            env->NewObjectArray(Total_Feature, env->FindClass(AY_OBFUSCATE("java/lang/String")),
+            env->NewObjectArray(Total_Feature, env->FindClass(OBFUSCATE("java/lang/String")),
                                 env->NewStringUTF(""));
 
     for (int i = 0; i < Total_Feature; i++)
@@ -360,52 +360,52 @@ jobjectArray GetFeatureList2(JNIEnv *env, jobject context) {
     jobjectArray ret;
 
     const char *features[] = {
-            AY_OBFUSCATE("Category_Player Abilities"), //Not counted
-            AY_OBFUSCATE("3_Toggle_Long Kill Distance"),
-            AY_OBFUSCATE("4_Toggle_Can Move In Vent"),
-            AY_OBFUSCATE("5_Toggle_Unlimited Duration For Shapeshifter"),
-            AY_OBFUSCATE("6_Toggle_No Cooldown For Shapeshifter"),
-            AY_OBFUSCATE("7_Toggle_Unlimited Vent Duration For Engineers"),
-            AY_OBFUSCATE("8_Toggle_No Vent Cooldown For Engineers"),
-            AY_OBFUSCATE("9_Toggle_Unlimited Duration For Phantom"),
-            AY_OBFUSCATE("10_Toggle_No Phantom Cooldown"),
-            AY_OBFUSCATE("11_SeekBar_Player Speed_1_100"),
+            OBFUSCATE("Category_Player Abilities"), //Not counted
+            OBFUSCATE("3_Toggle_Long Kill Distance"),
+            OBFUSCATE("4_Toggle_Can Move In Vent"),
+            OBFUSCATE("5_Toggle_Unlimited Duration For Shapeshifter"),
+            OBFUSCATE("6_Toggle_No Cooldown For Shapeshifter"),
+            OBFUSCATE("7_Toggle_Unlimited Vent Duration For Engineers"),
+            OBFUSCATE("8_Toggle_No Vent Cooldown For Engineers"),
+            OBFUSCATE("9_Toggle_Unlimited Duration For Phantom"),
+            OBFUSCATE("10_Toggle_No Phantom Cooldown"),
+            OBFUSCATE("11_SeekBar_Player Speed_1_100"),
     
     /*
-            AY_OBFUSCATE("Category_The Category 2"), //Not counted
-            AY_OBFUSCATE("Toggle_The toggle"),
-            AY_OBFUSCATE(
+            OBFUSCATE("Category_The Category 2"), //Not counted
+            OBFUSCATE("Toggle_The toggle"),
+            OBFUSCATE(
                     "100_Toggle_True_The toggle 2"), //This one have feature number assigned, and switched on by default
-            AY_OBFUSCATE("110_Toggle_The toggle 3"), //This one too
-            AY_OBFUSCATE("SeekBar_The slider_1_100"),
-            AY_OBFUSCATE("Spinner_The spinner_Items 1,Items 2,Items 3"),
-            AY_OBFUSCATE("Button_The button"),
-            AY_OBFUSCATE("ButtonLink_The button with link_https://www.youtube.com/"), //Not counted
-            AY_OBFUSCATE("ButtonOnOff_The On/Off button"),
-            AY_OBFUSCATE("CheckBox_The Check Box"),
-            AY_OBFUSCATE("InputValue_Input number"),
-            AY_OBFUSCATE("InputValue_1000_Input number 2"), //Max value
-            AY_OBFUSCATE("InputText_Input text"),
-            AY_OBFUSCATE("RadioButton_Radio buttons_OFF,Mod 1,Mod 2,Mod 3"),
+            OBFUSCATE("110_Toggle_The toggle 3"), //This one too
+            OBFUSCATE("SeekBar_The slider_1_100"),
+            OBFUSCATE("Spinner_The spinner_Items 1,Items 2,Items 3"),
+            OBFUSCATE("Button_The button"),
+            OBFUSCATE("ButtonLink_The button with link_https://www.youtube.com/"), //Not counted
+            OBFUSCATE("ButtonOnOff_The On/Off button"),
+            OBFUSCATE("CheckBox_The Check Box"),
+            OBFUSCATE("InputValue_Input number"),
+            OBFUSCATE("InputValue_1000_Input number 2"), //Max value
+            OBFUSCATE("InputText_Input text"),
+            OBFUSCATE("RadioButton_Radio buttons_OFF,Mod 1,Mod 2,Mod 3"),
 
             //Create new collapse
-            AY_OBFUSCATE("Collapse_Collapse 1"),
-            AY_OBFUSCATE("CollapseAdd_Toggle_The toggle"),
-            AY_OBFUSCATE("CollapseAdd_Toggle_The toggle"),
-            AY_OBFUSCATE("123_CollapseAdd_Toggle_The toggle"),
-            AY_OBFUSCATE("122_CollapseAdd_CheckBox_Check box"),
-            AY_OBFUSCATE("CollapseAdd_Button_The button"),
+            OBFUSCATE("Collapse_Collapse 1"),
+            OBFUSCATE("CollapseAdd_Toggle_The toggle"),
+            OBFUSCATE("CollapseAdd_Toggle_The toggle"),
+            OBFUSCATE("123_CollapseAdd_Toggle_The toggle"),
+            OBFUSCATE("122_CollapseAdd_CheckBox_Check box"),
+            OBFUSCATE("CollapseAdd_Button_The button"),
 
             //Create new collapse again
-            AY_OBFUSCATE("Collapse_Collapse 2_True"),
-            AY_OBFUSCATE("CollapseAdd_SeekBar_The slider_1_100"),
-            AY_OBFUSCATE("CollapseAdd_InputValue_Input number"),
+            OBFUSCATE("Collapse_Collapse 2_True"),
+            OBFUSCATE("CollapseAdd_SeekBar_The slider_1_100"),
+            OBFUSCATE("CollapseAdd_InputValue_Input number"),
 
-            AY_OBFUSCATE("RichTextView_This is text view, not fully HTML."
+            OBFUSCATE("RichTextView_This is text view, not fully HTML."
                       "<b>Bold</b> <i>italic</i> <u>underline</u>"
                       "<br />New line <font color='red'>Support colors</font>"
                       "<br/><big>bigger Text</big>"),
-            AY_OBFUSCATE("RichWebView_<html><head><style>body{color: white;}</style></head><body>"
+            OBFUSCATE("RichWebView_<html><head><style>body{color: white;}</style></head><body>"
                       "This is WebView, with REAL HTML support!"
                       "<div style=\"background-color: darkblue; text-align: center;\">Support CSS</div>"
                       "<marquee style=\"color: green; font-weight:bold;\" direction=\"left\" scrollamount=\"5\" behavior=\"scroll\">This is <u>scrollable</u> text</marquee>"
@@ -415,7 +415,7 @@ jobjectArray GetFeatureList2(JNIEnv *env, jobject context) {
     //Now you dont have to manually update the number everytime;
     int Total_Feature = (sizeof features / sizeof features[0]);
     ret = (jobjectArray)
-            env->NewObjectArray(Total_Feature, env->FindClass(AY_OBFUSCATE("java/lang/String")),
+            env->NewObjectArray(Total_Feature, env->FindClass(OBFUSCATE("java/lang/String")),
                                 env->NewStringUTF(""));
 
     for (int i = 0; i < Total_Feature; i++)
@@ -428,49 +428,49 @@ jobjectArray GetFeatureList3(JNIEnv *env, jobject context) {
     jobjectArray ret;
 
     const char *features[] = {
-            AY_OBFUSCATE("Category_Account Mods"), //Not counted
-            AY_OBFUSCATE("12_Toggle_Unlock All Items"),
-            AY_OBFUSCATE("13_Toggle_No Ads"),
-            AY_OBFUSCATE("14_Toggle_Free Chat"),
-            AY_OBFUSCATE("15_Toggle_Allow All Characters"),
-            AY_OBFUSCATE("16_InputText_Player Name"),
-            AY_OBFUSCATE("17_InputValue_Player Level"),
+            OBFUSCATE("Category_Account Mods"), //Not counted
+            OBFUSCATE("12_Toggle_Unlock All Items"),
+            OBFUSCATE("13_Toggle_No Ads"),
+            OBFUSCATE("14_Toggle_Free Chat"),
+            OBFUSCATE("15_Toggle_Allow All Characters"),
+            OBFUSCATE("16_InputText_Player Name"),
+            OBFUSCATE("17_InputValue_Player Level"),
 
     /*
-            AY_OBFUSCATE("Category_The Category 3"), //Not counted
-            AY_OBFUSCATE("Toggle_The toggle"),
-            AY_OBFUSCATE(
+            OBFUSCATE("Category_The Category 3"), //Not counted
+            OBFUSCATE("Toggle_The toggle"),
+            OBFUSCATE(
                     "100_Toggle_True_The toggle 2"), //This one have feature number assigned, and switched on by default
-            AY_OBFUSCATE("110_Toggle_The toggle 3"), //This one too
-            AY_OBFUSCATE("SeekBar_The slider_1_100"),
-            AY_OBFUSCATE("Spinner_The spinner_Items 1,Items 2,Items 3"),
-            AY_OBFUSCATE("Button_The button"),
-            AY_OBFUSCATE("ButtonLink_The button with link_https://www.youtube.com/"), //Not counted
-            AY_OBFUSCATE("ButtonOnOff_The On/Off button"),
-            AY_OBFUSCATE("CheckBox_The Check Box"),
-            AY_OBFUSCATE("InputValue_Input number"),
-            AY_OBFUSCATE("InputValue_1000_Input number 2"), //Max value
-            AY_OBFUSCATE("InputText_Input text"),
-            AY_OBFUSCATE("RadioButton_Radio buttons_OFF,Mod 1,Mod 2,Mod 3"),
+            OBFUSCATE("110_Toggle_The toggle 3"), //This one too
+            OBFUSCATE("SeekBar_The slider_1_100"),
+            OBFUSCATE("Spinner_The spinner_Items 1,Items 2,Items 3"),
+            OBFUSCATE("Button_The button"),
+            OBFUSCATE("ButtonLink_The button with link_https://www.youtube.com/"), //Not counted
+            OBFUSCATE("ButtonOnOff_The On/Off button"),
+            OBFUSCATE("CheckBox_The Check Box"),
+            OBFUSCATE("InputValue_Input number"),
+            OBFUSCATE("InputValue_1000_Input number 2"), //Max value
+            OBFUSCATE("InputText_Input text"),
+            OBFUSCATE("RadioButton_Radio buttons_OFF,Mod 1,Mod 2,Mod 3"),
 
             //Create new collapse
-            AY_OBFUSCATE("Collapse_Collapse 1"),
-            AY_OBFUSCATE("CollapseAdd_Toggle_The toggle"),
-            AY_OBFUSCATE("CollapseAdd_Toggle_The toggle"),
-            AY_OBFUSCATE("123_CollapseAdd_Toggle_The toggle"),
-            AY_OBFUSCATE("122_CollapseAdd_CheckBox_Check box"),
-            AY_OBFUSCATE("CollapseAdd_Button_The button"),
+            OBFUSCATE("Collapse_Collapse 1"),
+            OBFUSCATE("CollapseAdd_Toggle_The toggle"),
+            OBFUSCATE("CollapseAdd_Toggle_The toggle"),
+            OBFUSCATE("123_CollapseAdd_Toggle_The toggle"),
+            OBFUSCATE("122_CollapseAdd_CheckBox_Check box"),
+            OBFUSCATE("CollapseAdd_Button_The button"),
 
             //Create new collapse again
-            AY_OBFUSCATE("Collapse_Collapse 2_True"),
-            AY_OBFUSCATE("CollapseAdd_SeekBar_The slider_1_100"),
-            AY_OBFUSCATE("CollapseAdd_InputValue_Input number"),
+            OBFUSCATE("Collapse_Collapse 2_True"),
+            OBFUSCATE("CollapseAdd_SeekBar_The slider_1_100"),
+            OBFUSCATE("CollapseAdd_InputValue_Input number"),
 
-            AY_OBFUSCATE("RichTextView_This is text view, not fully HTML."
+            OBFUSCATE("RichTextView_This is text view, not fully HTML."
                       "<b>Bold</b> <i>italic</i> <u>underline</u>"
                       "<br />New line <font color='red'>Support colors</font>"
                       "<br/><big>bigger Text</big>"),
-            AY_OBFUSCATE("RichWebView_<html><head><style>body{color: white;}</style></head><body>"
+            OBFUSCATE("RichWebView_<html><head><style>body{color: white;}</style></head><body>"
                       "This is WebView, with REAL HTML support!"
                       "<div style=\"background-color: darkblue; text-align: center;\">Support CSS</div>"
                       "<marquee style=\"color: green; font-weight:bold;\" direction=\"left\" scrollamount=\"5\" behavior=\"scroll\">This is <u>scrollable</u> text</marquee>"
@@ -480,7 +480,7 @@ jobjectArray GetFeatureList3(JNIEnv *env, jobject context) {
     //Now you dont have to manually update the number everytime;
     int Total_Feature = (sizeof features / sizeof features[0]);
     ret = (jobjectArray)
-            env->NewObjectArray(Total_Feature, env->FindClass(AY_OBFUSCATE("java/lang/String")),
+            env->NewObjectArray(Total_Feature, env->FindClass(OBFUSCATE("java/lang/String")),
                                 env->NewStringUTF(""));
 
     for (int i = 0; i < Total_Feature; i++)
@@ -493,44 +493,44 @@ jobjectArray GetFeatureList4(JNIEnv *env, jobject context) {
     jobjectArray ret;
 
     const char *features[] = {
-            AY_OBFUSCATE("Category_ReLGL"), //Not counted
-            AY_OBFUSCATE("ButtonLink_ReLGL Project_https://github.com/Parsa307/ReLGL-Android-Menu"), //Not counted
+            OBFUSCATE("Category_ReLGL"), //Not counted
+            OBFUSCATE("ButtonLink_ReLGL Project_https://github.com/Parsa307/ReLGL-Android-Menu"), //Not counted
 
     /*
-            AY_OBFUSCATE("Category_The Category 4"), //Not counted
-            AY_OBFUSCATE("Toggle_The toggle"),
-            AY_OBFUSCATE(
+            OBFUSCATE("Category_The Category 4"), //Not counted
+            OBFUSCATE("Toggle_The toggle"),
+            OBFUSCATE(
                     "100_Toggle_True_The toggle 2"), //This one have feature number assigned, and switched on by default
-            AY_OBFUSCATE("110_Toggle_The toggle 3"), //This one too
-            AY_OBFUSCATE("SeekBar_The slider_1_100"),
-            AY_OBFUSCATE("Spinner_The spinner_Items 1,Items 2,Items 3"),
-            AY_OBFUSCATE("Button_The button"),
-            AY_OBFUSCATE("ButtonLink_The button with link_https://www.youtube.com/"), //Not counted
-            AY_OBFUSCATE("ButtonOnOff_The On/Off button"),
-            AY_OBFUSCATE("CheckBox_The Check Box"),
-            AY_OBFUSCATE("InputValue_Input number"),
-            AY_OBFUSCATE("InputValue_1000_Input number 2"), //Max value
-            AY_OBFUSCATE("InputText_Input text"),
-            AY_OBFUSCATE("RadioButton_Radio buttons_OFF,Mod 1,Mod 2,Mod 3"),
+            OBFUSCATE("110_Toggle_The toggle 3"), //This one too
+            OBFUSCATE("SeekBar_The slider_1_100"),
+            OBFUSCATE("Spinner_The spinner_Items 1,Items 2,Items 3"),
+            OBFUSCATE("Button_The button"),
+            OBFUSCATE("ButtonLink_The button with link_https://www.youtube.com/"), //Not counted
+            OBFUSCATE("ButtonOnOff_The On/Off button"),
+            OBFUSCATE("CheckBox_The Check Box"),
+            OBFUSCATE("InputValue_Input number"),
+            OBFUSCATE("InputValue_1000_Input number 2"), //Max value
+            OBFUSCATE("InputText_Input text"),
+            OBFUSCATE("RadioButton_Radio buttons_OFF,Mod 1,Mod 2,Mod 3"),
 
             //Create new collapse
-            AY_OBFUSCATE("Collapse_Collapse 1"),
-            AY_OBFUSCATE("CollapseAdd_Toggle_The toggle"),
-            AY_OBFUSCATE("CollapseAdd_Toggle_The toggle"),
-            AY_OBFUSCATE("123_CollapseAdd_Toggle_The toggle"),
-            AY_OBFUSCATE("122_CollapseAdd_CheckBox_Check box"),
-            AY_OBFUSCATE("CollapseAdd_Button_The button"),
+            OBFUSCATE("Collapse_Collapse 1"),
+            OBFUSCATE("CollapseAdd_Toggle_The toggle"),
+            OBFUSCATE("CollapseAdd_Toggle_The toggle"),
+            OBFUSCATE("123_CollapseAdd_Toggle_The toggle"),
+            OBFUSCATE("122_CollapseAdd_CheckBox_Check box"),
+            OBFUSCATE("CollapseAdd_Button_The button"),
 
             //Create new collapse again
-            AY_OBFUSCATE("Collapse_Collapse 2_True"),
-            AY_OBFUSCATE("CollapseAdd_SeekBar_The slider_1_100"),
-            AY_OBFUSCATE("CollapseAdd_InputValue_Input number"),
+            OBFUSCATE("Collapse_Collapse 2_True"),
+            OBFUSCATE("CollapseAdd_SeekBar_The slider_1_100"),
+            OBFUSCATE("CollapseAdd_InputValue_Input number"),
 
-            AY_OBFUSCATE("RichTextView_This is text view, not fully HTML."
+            OBFUSCATE("RichTextView_This is text view, not fully HTML."
                       "<b>Bold</b> <i>italic</i> <u>underline</u>"
                       "<br />New line <font color='red'>Support colors</font>"
                       "<br/><big>bigger Text</big>"),
-            AY_OBFUSCATE("RichWebView_<html><head><style>body{color: white;}</style></head><body>"
+            OBFUSCATE("RichWebView_<html><head><style>body{color: white;}</style></head><body>"
                       "This is WebView, with REAL HTML support!"
                       "<div style=\"background-color: darkblue; text-align: center;\">Support CSS</div>"
                       "<marquee style=\"color: green; font-weight:bold;\" direction=\"left\" scrollamount=\"5\" behavior=\"scroll\">This is <u>scrollable</u> text</marquee>"
@@ -540,7 +540,7 @@ jobjectArray GetFeatureList4(JNIEnv *env, jobject context) {
     //Now you dont have to manually update the number everytime;
     int Total_Feature = (sizeof features / sizeof features[0]);
     ret = (jobjectArray)
-            env->NewObjectArray(Total_Feature, env->FindClass(AY_OBFUSCATE("java/lang/String")),
+            env->NewObjectArray(Total_Feature, env->FindClass(OBFUSCATE("java/lang/String")),
                                 env->NewStringUTF(""));
 
     for (int i = 0; i < Total_Feature; i++)
@@ -554,7 +554,7 @@ void Changes(JNIEnv *env, jclass clazz, jobject obj,
                                         jboolean boolean, jstring str) {
 
 /*
-    LOGD(AY_OBFUSCATE("Feature name: %d - %s | Value: = %d | Bool: = %d | Text: = %s"), featNum,
+    LOGD(OBFUSCATE("Feature name: %d - %s | Value: = %d | Bool: = %d | Text: = %s"), featNum,
          env->GetStringUTFChars(featName, 0), value,
          boolean, str != nullptr ? env->GetStringUTFChars(str, 0) : "");*/
 
@@ -626,13 +626,13 @@ void Changes(JNIEnv *env, jclass clazz, jobject obj,
         case 2:
             switch (value) {
                 case 0:
-                    LOGD(AY_OBFUSCATE("Selected item 1"));
+                    LOGD(OBFUSCATE("Selected item 1"));
                     break;
                 case 1:
-                    LOGD(AY_OBFUSCATE("Selected item 2"));
+                    LOGD(OBFUSCATE("Selected item 2"));
                     break;
                 case 2:
-                    LOGD(AY_OBFUSCATE("Selected item 3"));
+                    LOGD(OBFUSCATE("Selected item 3"));
                     break;
             }
             break;
@@ -665,19 +665,19 @@ void lib_main() {
 
 int RegisterMenu(JNIEnv *env) {
     JNINativeMethod methods[] = {
-            {AY_OBFUSCATE("Icon"), AY_OBFUSCATE("()Ljava/lang/String;"), reinterpret_cast<void *>(Icon)},
-            {AY_OBFUSCATE("Background"), AY_OBFUSCATE("()Ljava/lang/String;"), reinterpret_cast<void *>(Background)},
-            {AY_OBFUSCATE("IconWebViewData"),  AY_OBFUSCATE("()Ljava/lang/String;"), reinterpret_cast<void *>(IconWebViewData)},
-            {AY_OBFUSCATE("IsGameLibLoaded"),  AY_OBFUSCATE("()Z"), reinterpret_cast<void *>(isGameLibLoaded)},
-            {AY_OBFUSCATE("Init"),AY_OBFUSCATE("(Landroid/content/Context;Landroid/widget/TextView;Landroid/widget/TextView;Landroid/widget/TextView;Landroid/widget/TextView;Landroid/widget/TextView;Landroid/widget/TextView;)V"),reinterpret_cast<void *>(Init)},
-            {AY_OBFUSCATE("SettingsList"),  AY_OBFUSCATE("()[Ljava/lang/String;"), reinterpret_cast<void *>(SettingsList)},
-            {AY_OBFUSCATE("GetFeatureList"),  AY_OBFUSCATE("()[Ljava/lang/String;"), reinterpret_cast<void *>(GetFeatureList)},
-            {AY_OBFUSCATE("GetFeatureList2"),  AY_OBFUSCATE("()[Ljava/lang/String;"), reinterpret_cast<void *>(GetFeatureList2)},
-            {AY_OBFUSCATE("GetFeatureList3"),  AY_OBFUSCATE("()[Ljava/lang/String;"), reinterpret_cast<void *>(GetFeatureList3)},
-            {AY_OBFUSCATE("GetFeatureList4"),  AY_OBFUSCATE("()[Ljava/lang/String;"), reinterpret_cast<void *>(GetFeatureList4)},
+            {OBFUSCATE("Icon"), OBFUSCATE("()Ljava/lang/String;"), reinterpret_cast<void *>(Icon)},
+            {OBFUSCATE("Background"), OBFUSCATE("()Ljava/lang/String;"), reinterpret_cast<void *>(Background)},
+            {OBFUSCATE("IconWebViewData"),  OBFUSCATE("()Ljava/lang/String;"), reinterpret_cast<void *>(IconWebViewData)},
+            {OBFUSCATE("IsGameLibLoaded"),  OBFUSCATE("()Z"), reinterpret_cast<void *>(isGameLibLoaded)},
+            {OBFUSCATE("Init"),OBFUSCATE("(Landroid/content/Context;Landroid/widget/TextView;Landroid/widget/TextView;Landroid/widget/TextView;Landroid/widget/TextView;Landroid/widget/TextView;Landroid/widget/TextView;)V"),reinterpret_cast<void *>(Init)},
+            {OBFUSCATE("SettingsList"),  OBFUSCATE("()[Ljava/lang/String;"), reinterpret_cast<void *>(SettingsList)},
+            {OBFUSCATE("GetFeatureList"),  OBFUSCATE("()[Ljava/lang/String;"), reinterpret_cast<void *>(GetFeatureList)},
+            {OBFUSCATE("GetFeatureList2"),  OBFUSCATE("()[Ljava/lang/String;"), reinterpret_cast<void *>(GetFeatureList2)},
+            {OBFUSCATE("GetFeatureList3"),  OBFUSCATE("()[Ljava/lang/String;"), reinterpret_cast<void *>(GetFeatureList3)},
+            {OBFUSCATE("GetFeatureList4"),  OBFUSCATE("()[Ljava/lang/String;"), reinterpret_cast<void *>(GetFeatureList4)},
     };
 
-    jclass clazz = env->FindClass(AY_OBFUSCATE("com/relgl/modmenu/Menu"));
+    jclass clazz = env->FindClass(OBFUSCATE("com/relgl/modmenu/Menu"));
     if (!clazz)
         return JNI_ERR;
     if (env->RegisterNatives(clazz, methods, sizeof(methods) / sizeof(methods[0])) != 0)
@@ -687,9 +687,9 @@ int RegisterMenu(JNIEnv *env) {
 
 int RegisterPreferences(JNIEnv *env) {
     JNINativeMethod methods[] = {
-            {AY_OBFUSCATE("Changes"), AY_OBFUSCATE("(Landroid/content/Context;ILjava/lang/String;IZLjava/lang/String;)V"), reinterpret_cast<void *>(Changes)},
+            {OBFUSCATE("Changes"), OBFUSCATE("(Landroid/content/Context;ILjava/lang/String;IZLjava/lang/String;)V"), reinterpret_cast<void *>(Changes)},
     };
-    jclass clazz = env->FindClass(AY_OBFUSCATE("com/relgl/modmenu/Preferences"));
+    jclass clazz = env->FindClass(OBFUSCATE("com/relgl/modmenu/Preferences"));
     if (!clazz)
         return JNI_ERR;
     if (env->RegisterNatives(clazz, methods, sizeof(methods) / sizeof(methods[0])) != 0)
@@ -699,9 +699,9 @@ int RegisterPreferences(JNIEnv *env) {
 
 int RegisterMain(JNIEnv *env) {
     JNINativeMethod methods[] = {
-            {AY_OBFUSCATE("CheckOverlayPermission"), AY_OBFUSCATE("(Landroid/content/Context;)V"), reinterpret_cast<void *>(CheckOverlayPermission)},
+            {OBFUSCATE("CheckOverlayPermission"), OBFUSCATE("(Landroid/content/Context;)V"), reinterpret_cast<void *>(CheckOverlayPermission)},
     };
-    jclass clazz = env->FindClass(AY_OBFUSCATE("com/relgl/modmenu/Main"));
+    jclass clazz = env->FindClass(OBFUSCATE("com/relgl/modmenu/Main"));
     if (!clazz)
         return JNI_ERR;
     if (env->RegisterNatives(clazz, methods, sizeof(methods) / sizeof(methods[0])) != 0)

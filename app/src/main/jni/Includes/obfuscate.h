@@ -8,8 +8,8 @@ Obfuscate
 Guaranteed compile-time string literal obfuscation library for C++14
 
 Usage:
-Pass string literals into the AY_AY_OBFUSCATE macro to obfuscate them at compile
-time. AY_AY_OBFUSCATE returns a reference to an ay::obfuscated_data object with the
+Pass string literals into the AY_OBFUSCATE macro to obfuscate them at compile
+time. AY_OBFUSCATE returns a reference to an ay::obfuscated_data object with the
 following traits:
 	- Guaranteed obfuscation of string
 	The passed string is encrypted with a simple XOR cipher at compile-time to
@@ -22,7 +22,7 @@ following traits:
 	take a char* or a const char*
 
 Example:
-const char* obfuscated_string = AY_AY_OBFUSCATE("Hello World");
+const char* obfuscated_string = AY_OBFUSCATE("Hello World");
 std::cout << obfuscated_string << std::endl;
 
 ----------------------------------------------------------------------------- */
@@ -44,11 +44,11 @@ std::cout << obfuscated_string << std::endl;
 	#define AY_LINE __LINE__
 #endif
 
-#ifndef AY_AY_OBFUSCATE_DEFAULT_KEY
+#ifndef AY_OBFUSCATE_DEFAULT_KEY
 	// The default 64 bit key to obfuscate strings with.
-	// This can be user specified by defining AY_AY_OBFUSCATE_DEFAULT_KEY before 
+	// This can be user specified by defining AY_OBFUSCATE_DEFAULT_KEY before 
 	// including obfuscate.h
-	#define AY_AY_OBFUSCATE_DEFAULT_KEY ay::generate_key(AY_LINE)
+	#define AY_OBFUSCATE_DEFAULT_KEY ay::generate_key(AY_LINE)
 #endif
 
 namespace ay
@@ -217,7 +217,7 @@ namespace ay
 
 	// This function exists purely to extract the number of elements 'N' in the
 	// array 'data'
-	template <size_type N, key_type KEY = AY_AY_OBFUSCATE_DEFAULT_KEY, typename CHAR_TYPE = char>
+	template <size_type N, key_type KEY = AY_OBFUSCATE_DEFAULT_KEY, typename CHAR_TYPE = char>
 	AY_CONSTEVAL auto make_obfuscator(const CHAR_TYPE(&data)[N])
 	{
 		return obfuscator<N, KEY, CHAR_TYPE>(data);
@@ -227,13 +227,13 @@ namespace ay
 // Obfuscates the string 'data' at compile-time and returns a reference to a
 // ay::obfuscated_data object with global lifetime that has functions for
 // decrypting the string and is also implicitly convertable to a char*
-#define AY_AY_OBFUSCATE(data) AY_AY_OBFUSCATE_KEY(data, AY_AY_OBFUSCATE_DEFAULT_KEY)
+#define AY_OBFUSCATE(data) AY_OBFUSCATE_KEY(data, AY_OBFUSCATE_DEFAULT_KEY)
 
 // Obfuscates the string 'data' with 'key' at compile-time and returns a
 // reference to a ay::obfuscated_data object with global lifetime that has
 // functions for decrypting the string and is also implicitly convertable to a
 // char*
-#define AY_AY_OBFUSCATE_KEY(data, key) \
+#define AY_OBFUSCATE_KEY(data, key) \
 	[]() -> ay::obfuscated_data<sizeof(data)/sizeof(data[0]), key, ay::char_type<decltype(*data)>>& { \
 		static_assert(sizeof(decltype(key)) == sizeof(ay::key_type), "key must be a 64 bit unsigned integer"); \
 		static_assert((key) >= (1ull << 56), "key must span all 8 bytes"); \
