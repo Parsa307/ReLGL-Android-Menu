@@ -16,7 +16,7 @@ LOCAL_ARM_MODE := arm
 
 # Add source files for the main library
 LOCAL_SRC_FILES := Main.cpp \
-    KittyMemory/KittyArm64.cpp \
+    KittyMemory/KittyAsm.cpp \
     KittyMemory/KittyScanner.cpp \
     KittyMemory/KittyMemory.cpp \
     KittyMemory/KittyUtils.cpp \
