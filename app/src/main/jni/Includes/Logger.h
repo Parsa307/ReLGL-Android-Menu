@@ -4,8 +4,8 @@
 //  Created by MJ (Ruit) on 1/1/19.
 //
 
-#ifndef Logger_hpp
-#define Logger_hpp
+#ifndef Logger_h
+#define Logger_h
 
 #include <jni.h>
 #include <android/log.h>
@@ -24,4 +24,4 @@ enum LogType {
 #define LOGI(...) ((void)__android_log_print(oINFO,  TAG, __VA_ARGS__))
 #define LOGW(...) ((void)__android_log_print(oWARN,  TAG, __VA_ARGS__))
 
-#endif /* Logger_hpp */
+#endif /* Logger_h */
