@@ -2,15 +2,6 @@
 #include "Menu/Menu.cpp"
 #include "Menu/get_device_api_level_inlines.h"
 
-void Toast(JNIEnv *env, jobject thiz, const char *text, int length) {
-    jstring jstr = env->NewStringUTF(text);
-    jclass toast = env->FindClass(OBFUSCATE("android/widget/Toast"));
-    jmethodID methodMakeText =env->GetStaticMethodID(toast,OBFUSCATE("makeText"),OBFUSCATE("(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;"));
-    jobject toastobj = env->CallStaticObjectMethod(toast, methodMakeText,thiz, jstr, length);
-    jmethodID methodShow = env->GetMethodID(toast, OBFUSCATE("show"), OBFUSCATE("()V"));
-    env->CallVoidMethod(toastobj, methodShow);
-}
-
 void startActivityPermisson(JNIEnv *env, jobject ctx){
     jclass native_context = env->GetObjectClass(ctx);
     jmethodID startActivity = env->GetMethodID(native_context, OBFUSCATE("startActivity"),OBFUSCATE("(Landroid/content/Intent;)V"));
@@ -62,8 +53,6 @@ void CheckOverlayPermission(JNIEnv *env, jclass, jobject ctx){
         jclass Settings = env->FindClass(OBFUSCATE("android/provider/Settings"));
         jmethodID canDraw =env->GetStaticMethodID(Settings, OBFUSCATE("canDrawOverlays"), OBFUSCATE("(Landroid/content/Context;)Z"));
         if (!env->CallStaticBooleanMethod(Settings, canDraw, ctx)){
-            Toast(env,ctx,OBFUSCATE("Overlay permission is required in order to show mod menu."),1);
-            Toast(env,ctx,OBFUSCATE("Overlay permission is required in order to show mod menu."),1);
             startActivityPermisson(env, ctx);
 
             pthread_t ptid;
@@ -93,9 +82,6 @@ void Init(JNIEnv *env, jobject, jobject ctx, jobject title, jobject subtitle, jo
     setText(env, t3, OBFUSCATE("Account<br>Mods"));
 
     setText(env, t4, OBFUSCATE("ReLGL"));
-
-    //Toast Example
-    Toast(env,ctx,OBFUSCATE("Developed by ReLGL Team"),ToastLength::LENGTH_LONG);
 
     initValid = true;
 }

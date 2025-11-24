@@ -35,8 +35,6 @@ public class MainActivity extends Activity {
                 return;
             } catch (ClassNotFoundException e) {
                 Log.e("Mod_menu", "Error. Game's main activity does not exist");
-                //Uncomment this if you are following METHOD 2 to launch menu
-                //Toast.makeText(MainActivity.this, "Error. Game's main activity does not exist", Toast.LENGTH_LONG).show();
             }
         }
 

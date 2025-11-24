@@ -230,8 +230,7 @@ public class Menu {
 
         TextView title = new TextView(context);
         title.setTextColor(TEXT_COLOR);
-        title.setTextSize(20.0f);
-        title.setTypeface(customFont);
+        title.setTextSize(18.0f);
         title.setGravity(Gravity.CENTER);
         RelativeLayout.LayoutParams rl = new RelativeLayout.LayoutParams(WRAP_CONTENT, WRAP_CONTENT);
         rl.addRule(RelativeLayout.CENTER_HORIZONTAL);
