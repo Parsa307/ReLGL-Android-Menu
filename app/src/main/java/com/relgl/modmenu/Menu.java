@@ -72,8 +72,8 @@ public class Menu {
     int BTN_COLOR = Color.parseColor("#FFC0CB");
     int MENU_BG_COLOR = Color.parseColor("#FFC0CB"); //#AARRGGBB
     int MENU_FEATURE_BG_COLOR = Color.parseColor("#00141C22"); //#AARRGGBB
-    int MENU_WIDTH = 867;
-    int MENU_HEIGHT = 1230;
+    int MENU_WIDTH = 450;
+    int MENU_HEIGHT = 360;
     int POS_X = 0;
     int POS_Y = 100;
 
