@@ -109,7 +109,6 @@ public class Menu {
     Context getContext;
     LinearLayout subLayout;
 
-
     //initialize methods from the native library
     native void Init(Context context, TextView title, TextView subTitle, TextView t1, TextView t2, TextView t3, TextView t4);
 
