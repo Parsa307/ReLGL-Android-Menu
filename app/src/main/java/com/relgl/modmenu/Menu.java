@@ -73,7 +73,7 @@ public class Menu {
     int MENU_BG_COLOR = Color.parseColor("#FFC0CB"); //#AARRGGBB
     int MENU_FEATURE_BG_COLOR = Color.parseColor("#00141C22"); //#AARRGGBB
     int MENU_WIDTH = 250;
-    int MENU_HEIGHT = 160;
+    int MENU_HEIGHT = 100;
     int POS_X = 0;
     int POS_Y = 100;
 
@@ -886,7 +886,6 @@ public class Menu {
 
             public void onClick(View v) {
                 Preferences.changeFeatureBool(getContext, finalfeatName, featNum, isOn);
-                //Log.d(TAG, finalfeatName + " " + featNum + " " + isActive2);
                 if (isOn) {
                     button.setText(Html.fromHtml(finalfeatName + ": ON"));
                     GradientDrawable buttonongd = new GradientDrawable();
@@ -910,7 +909,6 @@ public class Menu {
     }
 
     private void Spinner(LinearLayout linLayout, final int featNum, final String featName, final String list) {
-        //Log.d(TAG, "spinner " + featNum + " " + featName + " " + list);
         final List<String> lists = new LinkedList<>(Arrays.asList(list.split(",")));
 
         // Create another LinearLayout as a workaround to use it as a background
