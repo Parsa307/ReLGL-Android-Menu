@@ -33,6 +33,7 @@ import android.webkit.WebView;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.HorizontalScrollView;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.FrameLayout;
@@ -89,6 +90,7 @@ public class Menu {
     int TAB_STROKE_COLOR = Color.parseColor("#FFFFFF");
     int TAB_TEXT_COLOR = Color.parseColor("#FFFFFF");
     float TAB_TEXT_SIZE = 12.5f;
+    HorizontalScrollView Scroll;
     ScrollView H;
     LinearLayout l, tl;
     LinearLayout h, h2, v1, v2, v3, v4, v5;
@@ -284,6 +286,11 @@ public class Menu {
         l.setOrientation(LinearLayout.VERTICAL);
         l.setPadding(3, 0, 3, 0);
 
+        //********** HorizontalScrollView for Menu Buttons **********
+        Scroll = new HorizontalScrollView(context);
+        Scroll.setEnabled(true);
+        Scroll.setHorizontalScrollBarEnabled(false);
+
         //********** Layout **********
         tl = new LinearLayout(context);
         tl.setOrientation(LinearLayout.HORIZONTAL);
@@ -458,6 +465,8 @@ public class Menu {
         subLayout.addView(subTitle);
         subLayout.addView(l);
         l.addView(h);
+        l.addView(Scroll);
+        Scroll.addView(tl);
         tl.addView(v1);
         tl.addView(t1);
         tl.addView(v2);
