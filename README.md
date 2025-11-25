@@ -7,6 +7,8 @@ This project is continuing the legacy of LGL Mod Menu!
 
 Is in WIP! Please be patient! Open Issues if any bugs are found. Before opening any issues, check [Known issues](https://github.com/Parsa307/ReLGL-Android-Menu/issues/2)
 
+[Background](https://cdn.starrailstation.com/assets/5e86634f79aa6162e9cb265c5b23be67dc1386947476a6c7ebd9c7993a80fb75.webp)
+
 # Credits
 Thanks to the following individuals without them The project might have been impossible!
 
