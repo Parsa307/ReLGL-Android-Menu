@@ -69,8 +69,8 @@ public class Menu {
     //public static final String TAG = "Mod_Menu"; //Tag for logcat
 
     int TEXT_COLOR = Color.WHITE;
-    int BTN_COLOR = Color.YELLOW;
-    int MENU_BG_COLOR = Color.YELLOW;
+    int BTN_COLOR = Color.ORANGE;
+    int MENU_BG_COLOR = Color.ORANGE;
     int MENU_WIDTH = 350;
     int MENU_HEIGHT = 260;
     int POS_X = 0;
@@ -79,14 +79,14 @@ public class Menu {
     float MENU_CORNER = 4f;
     int ICON_SIZE = 45; //Change both width and height of image
     float ICON_ALPHA = 1f; //Transparent
-    int CategoryBG = Color.YELLOW;
-    int SeekBarColor = Color.YELLOW;
-    int SeekBarProgressColor = Color.YELLOW;
-    int CheckBoxColor = Color.YELLOW;
-    int RadioColor = Color.YELLOW;
+    int CategoryBG = Color.ORANGE;
+    int SeekBarColor = Color.ORANGE;
+    int SeekBarProgressColor = Color.ORANGE;
+    int CheckBoxColor = Color.ORANGE;
+    int RadioColor = Color.ORANGE;
     String NumberTxtColor = "#FFFFFF";
 
-    int LST_MAB = Color.YELLOW;
+    int LST_MAB = Color.ORANGE;
     int TAB_STROKE_COLOR = Color.WHITE;
     int TAB_TEXT_COLOR = Color.WHITE;
     float TAB_TEXT_SIZE = 12.5f;
