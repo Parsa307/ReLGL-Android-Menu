@@ -719,17 +719,17 @@ public class Menu {
         boolean isOn = Preferences.loadPrefBool(getContext, featName, featNum, swiOn);
 
         if (isOn) {
-            GD_TRACK.setStroke(2, LST_MAB);
+            GD_TRACK.setStroke(2, Color.WHITE);
             GD_TRACK.setColor(LST_MAB);
 
-            GD_THUMB.setStroke(2, LST_MAB);
+            GD_THUMB.setStroke(2, Color.WHITE);
             GD_TRACK.setColor(LST_MAB);
         } else {
             GD_TRACK.setStroke(2, LST_MAB);
-            GD_TRACK.setColor(LST_MAB);
+            GD_TRACK.setColor(Color.WHITE);
 
             GD_TRACK.setStroke(2, LST_MAB);
-            GD_THUMB.setColor(LST_MAB);
+            GD_THUMB.setColor(Color.WHITE);
         }
         switchR.setText(featName);
         switchR.setTextColor(TEXT_COLOR);
