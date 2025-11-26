@@ -68,9 +68,9 @@ public class Menu {
     //region Variable
     //public static final String TAG = "Mod_Menu"; //Tag for logcat
 
-    int TEXT_COLOR = Color.parseColor("#FFFFFF");
-    int BTN_COLOR = Color.parseColor("#FFC0CB");
-    int MENU_BG_COLOR = Color.parseColor("#FFC0CB"); //#AARRGGBB
+    TEXT_COLOR = Color.WHITE;
+    BTN_COLOR = Color.YELLOW;
+    MENU_BG_COLOR = Color.YELLOW; //#AARRGGBB
     int MENU_WIDTH = 350;
     int MENU_HEIGHT = 260;
     int POS_X = 0;
@@ -79,16 +79,16 @@ public class Menu {
     float MENU_CORNER = 4f;
     int ICON_SIZE = 45; //Change both width and height of image
     float ICON_ALPHA = 1f; //Transparent
-    int CategoryBG = Color.parseColor("#FFC0CB");
-    int SeekBarColor = Color.parseColor("#FFC0CB");
-    int SeekBarProgressColor = Color.parseColor("#FFC0CB");
-    int CheckBoxColor = Color.parseColor("#FFC0CB");
-    int RadioColor = Color.parseColor("#FFC0CB");
+    CategoryBG = Color.YELLOW;
+    SeekBarColor = Color.YELLOW;
+    SeekBarProgressColor = Color.YELLOW;
+    CheckBoxColor = Color.YELLOW;
+    RadioColor = Color.YELLOW
     String NumberTxtColor = "#FFFFFF";
 
-    int LST_MAB = Color.parseColor("#FFC0CB");
-    int TAB_STROKE_COLOR = Color.parseColor("#FFFFFF");
-    int TAB_TEXT_COLOR = Color.parseColor("#FFFFFF");
+    LST_MAB = Color.YELLOW;
+    TAB_STROKE_COLOR = Color.WHITE;
+    TAB_TEXT_COLOR = Color.WHITE;
     float TAB_TEXT_SIZE = 12.5f;
     HorizontalScrollView Scroll;
     ScrollView H;
@@ -721,12 +721,12 @@ public class Menu {
             GD_TRACK.setColor(LST_MAB);
 
             GD_THUMB.setStroke(2, Color.WHITE);
-            GD_TRACK.setColor(Color.argb(255, 255, 192, 203));
+            GD_TRACK.setColor(Color.argb(255, 255, 255, 0));
         } else {
-            GD_TRACK.setStroke(2, Color.argb(255, 255, 192, 203));
+            GD_TRACK.setStroke(2, Color.argb(255, 255, 255, 0));
             GD_TRACK.setColor(Color.argb(200, 255, 255, 255));
 
-            GD_TRACK.setStroke(2, Color.argb(255, 255, 192, 203));
+            GD_TRACK.setStroke(2, Color.argb(255, 255, 255, 0));
             GD_THUMB.setColor(Color.WHITE);
         }
         switchR.setText(featName);
@@ -743,12 +743,12 @@ public class Menu {
                 GD_TRACK.setColor(LST_MAB);
 
                 GD_THUMB.setStroke(2, Color.WHITE);
-                GD_THUMB.setColor(Color.argb(255, 255, 192, 203));
+                GD_THUMB.setColor(Color.argb(255, 255, 255, 0));
             } else {
-                GD_TRACK.setStroke(2, Color.argb(255, 255, 192, 203));
+                GD_TRACK.setStroke(2, Color.argb(255, 255, 255, 0));
                 GD_TRACK.setColor(Color.argb(200, 255, 255, 255));
 
-                GD_THUMB.setStroke(2, Color.argb(255, 255, 192, 203));
+                GD_THUMB.setStroke(2, Color.argb(255, 255, 255, 0));
                 GD_THUMB.setColor(Color.WHITE);
             }
             switch (featNum) {
