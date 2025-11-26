@@ -775,6 +775,7 @@ public class Menu {
         final TextView textView = new TextView(getContext);
         textView.setText(Html.fromHtml(featName + ": <font color='" + NumberTxtColor + "'>" + ((loadedProg == 0) ? min : loadedProg)));
         textView.setTextColor(TEXT_COLOR);
+        textView.setShadowLayer(7.0f, 0.0f, 0.0f, Color.BLACK);
 
         SeekBar seekBar = new SeekBar(getContext);
         seekBar.setPadding(25, 10, 35, 10);
