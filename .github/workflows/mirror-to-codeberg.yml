@@ -18,5 +18,5 @@ jobs:
 
       - name: Push to Codeberg
         run: |
-          git remote add codeberg https://oauth2:${{ secrets.CODEBERG_TOKEN }}@codeberg.org/Parsast/ReLGL-Android-Menu.git
+          git remote add codeberg https://Parsast:${{ secrets.CODEBERG_TOKEN }}@codeberg.org/Parsast/ReLGL-Android-Menu.git
           git push --prune codeberg 'refs/heads/*:refs/heads/*' 'refs/tags/*:refs/tags/*'

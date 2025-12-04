@@ -18,6 +18,6 @@ jobs:
 
       - name: Push to GitLab
         run: |
-          git remote add gitlab https://oauth2:${{ secrets.GITLAB_TOKEN }}@gitlab.com/Parsast/ReLGL-Android-Menu.git
+          git remote add gitlab https://Parsast:${{ secrets.GITLAB_TOKEN }}@gitlab.com/Parsast/ReLGL-Android-Menu.git
           git push --prune gitlab 'refs/heads/*:refs/heads/*' 'refs/tags/*:refs/tags/*'
 
