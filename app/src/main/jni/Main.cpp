@@ -268,6 +268,44 @@ void *hack_thread(void *) {
     DobbyHook((void *)(il2cppBase + 0x000000), (void *)playerspeed, (void **)&old_playerspeed);
     DobbyHook((void *)(il2cppBase + 0x000000), (void *)playername, (void **)&old_playername);
     DobbyHook((void *)(il2cppBase + 0x000000), (void *)playerlevel, (void **)&old_playerlevel);
+
+#elif defined(__x86_64__) // x86_64
+    DobbyHook((void *)(il2cppBase + 0x000000), (void *)maximumlightradius, (void **)&old_maximumlightradius);
+    DobbyHook((void *)(il2cppBase + 0x000000), (void *)removeallshadows, (void **)&old_removeallshadows);
+    DobbyHook((void *)(il2cppBase + 0x000000), (void *)longkilldistance, (void **)&old_longkilldistance);
+    DobbyHook((void *)(il2cppBase + 0x000000), (void *)canmoveinvent, (void **)&old_canmoveinvent);
+    DobbyHook((void *)(il2cppBase + 0x000000), (void *)unlimiteddurationforshapeshifter, (void **)&old_unlimiteddurationforshapeshifter);
+    DobbyHook((void *)(il2cppBase + 0x000000), (void *)nocooldownforshapeshifter, (void **)&old_nocooldownforshapeshifter);
+    DobbyHook((void *)(il2cppBase + 0x000000), (void *)unlimitedventdurationforengineers, (void **)&old_unlimitedventdurationforengineers);
+    DobbyHook((void *)(il2cppBase + 0x000000), (void *)noventcooldownforengineers, (void **)&old_noventcooldownforengineers);
+    DobbyHook((void *)(il2cppBase + 0x000000), (void *)unlimiteddurationforphantom, (void **)&old_unlimiteddurationforphantom);
+    DobbyHook((void *)(il2cppBase + 0x000000), (void *)nocooldownforphantom, (void **)&old_nocooldownforphantom);
+    DobbyHook((void *)(il2cppBase + 0x000000), (void *)unlockallitems, (void **)&old_unlockallitems);
+    DobbyHook((void *)(il2cppBase + 0x000000), (void *)noads, (void **)&old_noads);
+    DobbyHook((void *)(il2cppBase + 0x000000), (void *)freechat, (void **)&old_freechat);
+    DobbyHook((void *)(il2cppBase + 0x000000), (void *)allowallcharacters, (void **)&old_allowallcharacters);
+    DobbyHook((void *)(il2cppBase + 0x000000), (void *)playerspeed, (void **)&old_playerspeed);
+    DobbyHook((void *)(il2cppBase + 0x000000), (void *)playername, (void **)&old_playername);
+    DobbyHook((void *)(il2cppBase + 0x000000), (void *)playerlevel, (void **)&old_playerlevel);
+
+#elif defined(__i386__) // x86
+    DobbyHook((void *)(il2cppBase + 0x000000), (void *)maximumlightradius, (void **)&old_maximumlightradius);
+    DobbyHook((void *)(il2cppBase + 0x000000), (void *)removeallshadows, (void **)&old_removeallshadows);
+    DobbyHook((void *)(il2cppBase + 0x000000), (void *)longkilldistance, (void **)&old_longkilldistance);
+    DobbyHook((void *)(il2cppBase + 0x000000), (void *)canmoveinvent, (void **)&old_canmoveinvent);
+    DobbyHook((void *)(il2cppBase + 0x000000), (void *)unlimiteddurationforshapeshifter, (void **)&old_unlimiteddurationforshapeshifter);
+    DobbyHook((void *)(il2cppBase + 0x000000), (void *)nocooldownforshapeshifter, (void **)&old_nocooldownforshapeshifter);
+    DobbyHook((void *)(il2cppBase + 0x000000), (void *)unlimitedventdurationforengineers, (void **)&old_unlimitedventdurationforengineers);
+    DobbyHook((void *)(il2cppBase + 0x000000), (void *)noventcooldownforengineers, (void **)&old_noventcooldownforengineers);
+    DobbyHook((void *)(il2cppBase + 0x000000), (void *)unlimiteddurationforphantom, (void **)&old_unlimiteddurationforphantom);
+    DobbyHook((void *)(il2cppBase + 0x000000), (void *)nocooldownforphantom, (void **)&old_nocooldownforphantom);
+    DobbyHook((void *)(il2cppBase + 0x000000), (void *)unlockallitems, (void **)&old_unlockallitems);
+    DobbyHook((void *)(il2cppBase + 0x000000), (void *)noads, (void **)&old_noads);
+    DobbyHook((void *)(il2cppBase + 0x000000), (void *)freechat, (void **)&old_freechat);
+    DobbyHook((void *)(il2cppBase + 0x000000), (void *)allowallcharacters, (void **)&old_allowallcharacters);
+    DobbyHook((void *)(il2cppBase + 0x000000), (void *)playerspeed, (void **)&old_playerspeed);
+    DobbyHook((void *)(il2cppBase + 0x000000), (void *)playername, (void **)&old_playername);
+    DobbyHook((void *)(il2cppBase + 0x000000), (void *)playerlevel, (void **)&old_playerlevel);
 #endif
 
     LOGI("Done");

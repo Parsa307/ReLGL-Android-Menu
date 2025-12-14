@@ -9,8 +9,7 @@ android {
         versionCode 1
         versionName "2.0"
         ndk {
-            //noinspection ChromeOsAbiSupport
-            abiFilters 'arm64-v8a', 'armeabi-v7a'
+            abiFilters 'arm64-v8a', 'armeabi-v7a', 'x86_64', 'x86'
         }
         signingConfig signingConfigs.debug
     }

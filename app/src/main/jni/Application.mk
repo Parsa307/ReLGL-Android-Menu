@@ -1,5 +1,5 @@
 # To AIDE Users: If you are using 32-bit/ARMv7 phone, please remove arm64-v8a
-APP_ABI := arm64-v8a armeabi-v7a
+APP_ABI := arm64-v8a armeabi-v7a x86_64 x86
 # APP_PLATFORM := android-18 #APP_PLATFORM does not need to be set. It will automatically defaulting
 APP_STL := c++_static
 APP_OPTIM := release
