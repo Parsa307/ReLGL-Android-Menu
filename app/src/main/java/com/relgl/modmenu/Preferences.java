@@ -31,7 +31,7 @@ public class Preferences {
     public static int loadPrefInt(Context context, String featureName, int featureNum) {
         if (loadPref) {
             int value = Preferences.with(context).readInt(featureNum);
-            Changes(context, featureNum, featureName, i, false, null);
+            Changes(context, featureNum, featureName, value, false, null);
             return value;
         }
         return 0;
