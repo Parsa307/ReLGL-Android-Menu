@@ -6,7 +6,7 @@
 
 Continuing the Legacy of LGLTeam!
 
-It's in WIP! Please be patient! Open Issues if any bugs are found. Before opening any issues, check [Known issues](https://github.com/Parsa307/ReLGL-Android-Menu/issues/2)
+Open Issues if any bugs are found. Before opening any issues, check [Known issues](https://github.com/Parsa307/ReLGL-Android-Menu/issues/2)
 
 [Background](https://safebooru.donmai.us/posts/10262256)
 
